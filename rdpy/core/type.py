@@ -868,7 +868,7 @@ class Stream(StringIO):
         """
         @return: not yet read length
         """
-        return self.len - self.pos
+        return len(self.getValue()) - self.pos
     
     def readLen(self):
         """
