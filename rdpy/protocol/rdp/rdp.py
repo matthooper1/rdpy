@@ -21,13 +21,12 @@
 Use to manage RDP stack in twisted
 """
 
-from rdpy.core import layer
+from rdpy.core import layer, log
 from rdpy.core.error import CallPureVirtualFuntion, InvalidValue
 import rdpy.protocol.rdp.pdu.layer as pdu_layer
 import rdpy.protocol.rdp.pdu.data
 import rdpy.protocol.rdp.pdu.caps
-import rdpy.core.log as log
-import rdpy.protocol.rdp.tpkt, rdpy.protocol.rdp.x224, rdpy.protocol.rdp.sec
+from rdpy.protocol.rdp import sec, x224, tpkt
 from rdpy.protocol.rdp.t125 import mcs, gcc
 from rdpy.protocol.rdp.nla import cssp, ntlm
 
