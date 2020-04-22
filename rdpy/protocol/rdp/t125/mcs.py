@@ -28,9 +28,9 @@ from rdpy.core.layer import LayerAutomata, IStreamSender, Layer
 from rdpy.core.type import sizeof, Stream, UInt8, UInt16Le, String
 from rdpy.core.error import InvalidExpectedDataException, InvalidValue, InvalidSize, CallPureVirtualFuntion
 from rdpy.protocol.rdp.t125.ber import writeLength
-import rdpy.core.log as log
+from rdpy.core import log
 
-import rdpy.protocol.rdp.t125.ber, rdpy.protocol.rdp.t125.gcc, rdpy.protocol.rdp.t125.per
+from rdpy.protocol.rdp.t125 import ber, gcc, per
 import rdpy.security.rsa_wrapper as rsa
 
 class Message(object):
