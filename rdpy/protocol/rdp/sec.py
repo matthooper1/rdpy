@@ -22,8 +22,8 @@ RDP Standard security layer
 """
 
 import hashlib
-import rdpy.protocol.rdp.lic
 import rdpy.protocol.rdp.tpkt as tpkt
+from rdpy.protocol.rdp import lic
 from rdpy.protocol.rdp.t125 import gcc, mcs
 from rdpy.core.type import CompositeType, CallableValue, Stream, UInt32Le, UInt16Le, String, sizeof, UInt8
 from rdpy.core.layer import LayerAutomata, IStreamSender
