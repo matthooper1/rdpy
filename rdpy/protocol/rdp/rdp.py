@@ -23,7 +23,7 @@ Use to manage RDP stack in twisted
 
 from rdpy.core import layer
 from rdpy.core.error import CallPureVirtualFuntion, InvalidValue
-import rdpy.protocol.rdp.pdu as pdu
+import rdpy.protocol.rdp.pdu.layer as pdu_layer
 import rdpy.protocol.rdp.pdu.data
 import rdpy.protocol.rdp.pdu.caps
 import rdpy.core.log as log
@@ -39,7 +39,7 @@ class SecurityLevel(object):
     RDP_LEVEL_SSL = 1
     RDP_LEVEL_NLA = 2
 
-class RDPClientController(pdu.layer.PDUClientListener):
+class RDPClientController(pdu_layer.PDUClientListener):
     """
     Manage RDP stack as client
     """
@@ -47,7 +47,7 @@ class RDPClientController(pdu.layer.PDUClientListener):
         #list of observer
         self._clientObserver = []
         #PDU layer
-        self._pduLayer = pdu.layer.Client(self)
+        self._pduLayer = pdu_layer.Client(self)
         #secure layer
         self._secLayer = sec.Client(self._pduLayer)
         #multi channel service
@@ -354,7 +354,7 @@ class RDPClientController(pdu.layer.PDUClientListener):
         """
         self._pduLayer.close()
 
-class RDPServerController(pdu.layer.PDUServerListener):
+class RDPServerController(pdu_layer.PDUServerListener):
     """
     @summary: Controller use in server side mode
     """               
@@ -368,7 +368,7 @@ class RDPServerController(pdu.layer.PDUServerListener):
         #list of observer
         self._serverObserver = []
         #build RDP protocol stack
-        self._pduLayer = pdu.layer.Server(self)
+        self._pduLayer = pdu_layer.Server(self)
         #secure layer
         self._secLayer = sec.Server(self._pduLayer)
         #multi channel service
