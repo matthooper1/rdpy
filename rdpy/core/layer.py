@@ -202,7 +202,7 @@ class RawLayer(protocol.Protocol, LayerAutomata, IStreamSender):
         #while buffer have expected size call local callback
         while self._expectedLen > 0 and len(self._buffer) >= self._expectedLen:
             #expected data is first expected bytes
-            expectedData = Stream(self._buffer[0:self._expectedLen])
+            expectedData = Stream(self._buffer[0:self._expectedLen].decode("utf-8"))
             #rest is for next event of automata
             self._buffer = self._buffer[self._expectedLen:]
             #call recv function
